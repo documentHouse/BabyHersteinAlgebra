@@ -1,0 +1,47 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Solutions for Abstract Algebra by I.N. Herstein}
+\author{Andrew Rickert}
+\date{\today}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+Problem\\
+Let $G$ be an abelian group with order $|| G || = p^n m$ where $p$ is a prime and $p \nmid m$.Consider the set $P$ = $\{ a | a^{p^k} = e \; \text{for some} \; k \in \mathbb{N} \}$. Show the following: \\
+a) That $P$ is a group \\
+b) that $G$/$P$ does not have an element of order $P$ \\
+c) That $|| P || = p^n$ \\
+
+For part (a) we note that $P$ is not empty since $e \in P$. Now, suppose that $b \in P$ and $c \in P$. This means that there exists $k'$ and $k''$ such that $b^{p^{k'}} = e$ and $c^{p^{k''}} = e$. Now we see that 
+\begin{eqnarray*} 
+(bc)^{p^{k' + k''}} = (bc)^{p^{k'} p^ {k''}} &=&  b^{p^{k'} p^ {k''}} c^{p^{k'} p^ {k''}} \quad \text{Since $G$ is abelian}\\
+&=& (b^{p^{k'}})^{p^ {k''}} (c^{p^{k''}})^{p^ {k'}} \\
+&=& (e)^{p^ {k''}} (e)^{p^ {k'}} = e e = e \\
+\end{eqnarray*}
+
+\noindent This says that $bc \in P$. To prove that $a^{-1} \in P$ if $a$ is we note that since $a^{p^k} = e$ that $a$ has order $p^k$. This means $a$ is a member of cyclic group with $a$ as the generator. Since the cyclic group has order $p^k$ we know that $x^{p^k}$ for all $x$ in the cyclic group so we have
+\begin{eqnarray*}
+&&a^{-1} = a^{p^k - 1} \; \text{since} \; a a^{p^k - 1} = a^{p^k} = e \\
+&&\text{This allows us to show} \; (a^{p^k - 1})^{p^k} = a^{(p^k - 1) p^k} = (a^{p^k})^{p^k-1} = (e)^{p^k-1} = e
+\end{eqnarray*}
+This means that $a^{-1} = a^{p^k - 1} \in P$ which completes part (a).\\
+
+\noindent For part (b) we use part (c) and then prove part (c). A theorem in Herstein says that $||G$/$P||$ = $||G||$/$||P||$. Since we know that $||G||$ = $p^n m$ and $||P|| = p^n$ by part (c). This gives
+\[ ||G/P|| = ||G||/||P|| = p^n m / p^n = m \]
+
+By hypothesis $p \nmid m$ which means that $G / P$ does not have an element of order $p$. If it did then this element would be the basis for a cyclic sub group of $G / P$. This subgroup would have $p$ elements and by Lagranges theorem would divide the order of $G / P$ which is $m$ so $p \mid m$. This contradiction means there can be no element of order $p$. This completes part (b).
+
+
+
+\end{document}  
